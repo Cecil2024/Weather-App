@@ -48,6 +48,16 @@
   margin-bottom: 8px;
 }
 
+.button{
+  background-color: red;
+  color: orange;
+  padding: 20px;
+  border-radius: 10px;
+}
+.searchbox{
+  padding: 20px;
+}
+
 .main code {
   font-family: inherit;
   background: var(--gray-alpha-100);

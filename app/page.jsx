@@ -1,7 +1,13 @@
-
 'use client';
+
+import React from 'react';
 import { useState } from 'react';
 import styles from "./page.module.css";
+import Link from 'next/link';
+import Lottie from 'lottie-react';
+import animationData from './animations/weather.json';
+
+
 export default function Home() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
@@ -24,23 +30,32 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <h1>Weather App</h1>
-      <p>Select city</p>
+      <h2>Around the world</h2>
+      <div className={styles.containerLottie}>
+      <Lottie animationData={animationData} loop={true} />
+      </div>
+      <container className={styles.container}>
+      <p>City</p>
       <input className={styles.searchbox}
         type="text"
         value={city}
         onChange={(e) => setCity(e.target.value)}
-        placeholder="Enter city"
+        placeholder="Enter city name"
       />
-      <button className={styles.button} onClick={fetchWeather}>Send</button>
+      <button className={styles.button} onClick={fetchWeather}>Check weather</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {weather && (
-        <fieldset>
+        <fieldset className={styles.fieldset}>
           <legend>Weather Info</legend>
           <p>City: {weather.name}</p>
           <p>Temperature: {Math.round(weather.main.temp - 273.15)}°C</p>
           <p>Weather: {weather.weather[0].description}</p>
         </fieldset>
-      )}
-    </div>
+        )}
+        </container>
+        <footer className={styles.footer}>
+          <h3>Designed by <Link href="https://www.connievisualarts.com/">Connie Ramirez</Link></h3> 
+        </footer>    
+      </div>
   );
 }

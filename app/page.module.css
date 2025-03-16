@@ -23,8 +23,12 @@
 }
 
 .containerLottie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 7rem;
   height: 7rem;
+  margin-bottom: 0px;
 }
 
 .container {

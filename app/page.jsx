@@ -4,8 +4,7 @@ import React from 'react';
 import { useState } from 'react';
 import styles from "./page.module.css";
 import Link from 'next/link';
-import Lottie from 'lottie-react';
-import animationData from './animations/weather.json';
+import Image from 'next/image';
 
 
 export default function Home() {
@@ -31,9 +30,16 @@ export default function Home() {
     <div className={styles.page}>
       <h1>Weather App</h1>
       <h2>Around the world</h2>
+
       <div className={styles.containerLottie}>
-      <Lottie animationData={animationData} loop={true} />
+        <Image
+          src="/weather.gif"
+          alt="Icon Weather" 
+          width={100} 
+          height={100} 
+        />
       </div>
+
       <container className={styles.container}>
       <p>City</p>
       <input className={styles.searchbox}
